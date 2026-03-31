@@ -32,7 +32,6 @@ export function BikeCarousel({ bikes }: { bikes: BikeCard[] }) {
   useEffect(() => {
     const track = trackRef.current
     if (!track) return
-    syncState()
     track.addEventListener('scroll', syncState, { passive: true })
     return () => track.removeEventListener('scroll', syncState)
   }, [])
