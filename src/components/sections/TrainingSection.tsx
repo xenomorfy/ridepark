@@ -1,6 +1,7 @@
 import type { ReactElement } from 'react'
-import Image from 'next/image'
 import { trainingPrograms, type TrainingIconId } from '../../data/landingContent'
+
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
 import { SectionWrapper } from '../ui/SectionWrapper'
 import { PersonIcon, GroupIcon, TrophyIcon } from '../icons/TrainingIcons'
 
@@ -28,13 +29,11 @@ export function TrainingSection() {
 
         <div className="training-right" data-reveal data-delay="150">
           <div className="training-img-wrap">
-            <Image
-              src="/images/trainer.jpg"
+            <img
+              src={`${BASE}/images/trainer.jpg`}
               alt="Главный тренер RIDEPARK"
               className="training-rider-img"
-              width={600}
-              height={800}
-              style={{ width: '100%', height: 'auto' }}
+              loading="lazy"
             />
             <div className="training-rider-card">
               <p className="trainer-quote">

@@ -1,16 +1,16 @@
-import Image from 'next/image'
 import { type BikeCard } from '../../data/landingContent'
+
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
 
 export function BikeCard({ bike }: { bike: BikeCard }) {
   return (
     <article className="bike-card">
-      <div className="bike-card-img" style={{ position: 'relative' }}>
-        <Image
-          src={bike.category === 'Квадроцикл' ? '/images/quad.png' : '/images/bike.png'}
+      <div className="bike-card-img">
+        <img
+          src={`${BASE}${bike.category === 'Квадроцикл' ? '/images/quad.png' : '/images/bike.png'}`}
           alt={bike.title}
           className="bike-photo"
-          fill
-          sizes="(max-width: 600px) 100vw, (max-width: 1024px) 48vw, 31vw"
+          loading="lazy"
         />
         {bike.badge && <span className="bike-badge">{bike.badge}</span>}
       </div>

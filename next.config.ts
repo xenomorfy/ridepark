@@ -11,7 +11,6 @@ const nextConfig: NextConfig = {
   // Если используется кастомный домен или корневой репозиторий — убери эти две строки.
   basePath,
   assetPrefix: isProd ? '/ridepark/' : '',
-  images: { unoptimized: true },
   env: { NEXT_PUBLIC_BASE_PATH: basePath },
 }
 
