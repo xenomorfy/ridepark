@@ -4,7 +4,8 @@ import { useRef, useCallback } from 'react'
 import { heroStats } from '../data/landingContent'
 import { StatGrid } from './ui/StatGrid'
 
-const VIDEOS = ['/hero-bg.webm', '/hero-bg-1.webm', '/hero-bg-2.webm']
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
+const VIDEOS = [`${BASE}/hero-bg.webm`, `${BASE}/hero-bg-1.webm`, `${BASE}/hero-bg-2.webm`]
 
 export function Hero() {
   const indexRef = useRef(0)

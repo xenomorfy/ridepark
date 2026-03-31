@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { galleryItems } from '../../data/landingContent'
 import { SectionWrapper } from '../ui/SectionWrapper'
 import { SectionHead } from '../ui/SectionHead'
@@ -17,7 +18,7 @@ export function GallerySection() {
             key={item.id}
             className={`gallery-item ${item.cls}`}
           >
-            <img src={item.src} alt={item.label} loading="lazy" />
+            <Image src={item.src} alt={item.label} fill style={{ objectFit: 'cover' }} />
           </div>
         ))}
       </div>
