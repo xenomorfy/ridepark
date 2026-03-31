@@ -1,0 +1,157 @@
+/* ── Site header ── */
+.site-header {
+  position:   fixed;
+  top:        0;
+  left:       0;
+  width:      100%;
+  z-index:    100;
+  transition: background var(--t), border-color var(--t), backdrop-filter var(--t);
+}
+
+.site-header.is-hero {
+  background:   transparent;
+  border-bottom: 1px solid transparent;
+}
+
+.site-header.is-solid {
+  background:    rgba(8, 8, 8, 0.88);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* ── Inner layout ── */
+.header-inner {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  padding:         0 1.25rem;
+  height:          4rem;
+  max-width:       74.5rem;
+  margin:          0 auto;
+}
+
+/* ── Brand ── */
+.header-brand {
+  font-family:    var(--font-d);
+  font-size:      1.5rem;
+  letter-spacing: 0.06em;
+  color:          var(--text);
+}
+.header-brand span { color: var(--primary); }
+
+/* ── Desktop nav ── */
+.header-nav {
+  display: none;
+  gap:     0.25rem;
+}
+
+.header-nav a {
+  font-size:      0.82rem;
+  font-weight:    600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color:          var(--text-2);
+  padding:        0.4rem 0.75rem;
+  border-radius:  var(--r-sm);
+  transition:     color var(--t-fast), background var(--t-fast);
+}
+
+.header-nav a:hover {
+  color:      var(--text);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ── Header actions ── */
+.header-actions {
+  display:     flex;
+  align-items: center;
+  gap:         0.75rem;
+}
+
+.header-book { display: none; }
+
+/* ── Burger ── */
+.burger-btn {
+  width:          2.75rem;
+  height:         2.75rem;
+  background:     rgba(255, 255, 255, 0.06);
+  border:         1px solid var(--border-2);
+  border-radius:  var(--r-sm);
+  display:        flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:    center;
+  gap:            5px;
+  cursor:         pointer;
+  transition:     background var(--t-fast), border-color var(--t-fast);
+}
+.burger-btn:hover {
+  background:   rgba(255, 255, 255, 0.1);
+  border-color: var(--border-2);
+}
+
+.burger-btn span {
+  display:      block;
+  width:        1.125rem;
+  height:       1.5px;
+  background:   var(--text);
+  border-radius: 999px;
+  transition:   transform 0.25s ease, opacity 0.2s ease;
+  transform-origin: center;
+}
+
+.burger-btn.is-open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.burger-btn.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.burger-btn.is-open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ── Mobile nav drawer ── */
+.mobile-nav-overlay {
+  position:   fixed;
+  inset:      0;
+  top:        4rem;
+  background: rgba(8, 8, 8, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index:    99;
+  display:    flex;
+  flex-direction: column;
+  padding:    2rem 1.5rem;
+  border-top: 1px solid var(--border);
+  animation:  drawerIn 0.22s ease;
+}
+
+@keyframes drawerIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.mobile-nav {
+  display:        flex;
+  flex-direction: column;
+  gap:            0.25rem;
+}
+
+.mobile-nav a {
+  font-family:    var(--font-d);
+  font-size:      2.25rem;
+  line-height:    1.1;
+  letter-spacing: 0.02em;
+  color:          var(--text);
+  padding:        0.5rem 0;
+  border-bottom:  1px solid var(--border);
+  transition:     color var(--t-fast), padding-left var(--t-fast);
+}
+.mobile-nav a:last-child { border-bottom: none; }
+
+.mobile-nav a:hover {
+  color:        var(--primary);
+  padding-left: 0.75rem;
+}
+
+/* ── Desktop breakpoint ── */
+@media (min-width: 768px) {
+  .header-nav   { display: flex; }
+  .header-book  { display: inline-flex; }
+  .burger-btn   { display: none; }
+}

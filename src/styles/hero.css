@@ -1,0 +1,164 @@
+/* ── Hero section ── */
+.hero {
+  position:   relative;
+  min-height: 100svh;
+  display:    flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow:   hidden;
+  background: radial-gradient(ellipse at 70% 0%, #3a1400 0%, #080808 55%);
+}
+
+/* video bg */
+.hero-video {
+  position:   absolute;
+  inset:      0;
+  width:      100%;
+  height:     100%;
+  object-fit: cover;
+  will-change: transform;
+}
+
+/* overlay */
+.hero-overlay {
+  position: absolute;
+  inset:    0;
+  background:
+    linear-gradient(to bottom, rgba(8,8,8,0.55) 0%, rgba(8,8,8,0.82) 75%, rgba(8,8,8,1) 100%),
+    linear-gradient(115deg, rgba(255,102,0,0.18) 0%, transparent 50%);
+}
+
+/* ── Content ── */
+.hero-inner {
+  position:   relative;
+  z-index:    2;
+  width:      min(72rem, 100% - 2.5rem);
+  margin:     0 auto;
+  padding:    5rem 0 0;
+}
+
+.hero-eyebrow {
+  margin-bottom: 1.25rem;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.hero-title {
+  font-family:    var(--font-d);
+  font-size:      clamp(5.5rem, 22vw, 22rem);
+  line-height:    0.85;
+  letter-spacing: -0.01em;
+  text-shadow:    0 8px 40px rgba(0,0,0,0.9);
+  animation:      fadeUp 0.9s ease 0.05s both;
+}
+
+.hero-title em {
+  font-style: normal;
+  color:      var(--primary);
+}
+
+.hero-tagline {
+  font-size:      clamp(0.95rem, 2vw, 1.2rem);
+  color:          var(--text-2);
+  max-width:      34rem;
+  margin-top:     1.5rem;
+  line-height:    1.6;
+  animation:      fadeUp 0.9s ease 0.18s both;
+}
+
+.hero-cta {
+  display:     flex;
+  flex-wrap:   wrap;
+  gap:         0.875rem;
+  margin-top:  2.25rem;
+  animation:   fadeUp 0.9s ease 0.3s both;
+}
+
+/* ── Stats bar ── */
+.hero-stats {
+  position: relative;
+  z-index:  2;
+  display:  flex;
+  gap:      0;
+  margin-top: 4rem;
+  border-top: 1px solid var(--border);
+  animation: fadeUp 0.9s ease 0.42s both;
+}
+
+.hero-stat {
+  flex:    1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 0;
+  border-right: 1px solid var(--border);
+  padding-left: 1.75rem;
+}
+.hero-stat:last-child { border-right: none; }
+
+.hero-stat-num {
+  font-family:    var(--font-d);
+  font-size:      clamp(2rem, 5vw, 3.25rem);
+  line-height:    1;
+  color:          var(--primary);
+}
+
+.hero-stat-label {
+  font-size:  0.75rem;
+  color:      var(--text-3);
+  margin-top: 0.25rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ── Scroll indicator ── */
+.hero-scroll {
+  position: absolute;
+  bottom:   1.5rem;
+  right:    1.75rem;
+  z-index:  2;
+  display:  flex;
+  flex-direction: column;
+  align-items:    center;
+  gap:       0.5rem;
+  animation: fadeUp 1s ease 0.6s both;
+}
+
+.hero-scroll span {
+  font-size:      0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color:          var(--text-3);
+  writing-mode:   vertical-rl;
+}
+
+.hero-scroll-line {
+  width:     1px;
+  height:    3.5rem;
+  background: linear-gradient(to bottom, var(--primary), transparent);
+  animation:  scrollPulse 1.8s ease-in-out infinite;
+}
+
+/* ── Keyframes ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); transform-origin: top; }
+  50%       { opacity: 1;   transform: scaleY(1);   transform-origin: top; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-eyebrow,
+  .hero-title,
+  .hero-tagline,
+  .hero-cta,
+  .hero-stats,
+  .hero-scroll { animation: none; opacity: 1; transform: none; }
+}
+
+@media (min-width: 768px) {
+  .hero-inner  { padding-top: 7rem; }
+  .hero-stats  { margin-top: 5rem; }
+  .hero-stat   { padding-left: 2.5rem; }
+}
