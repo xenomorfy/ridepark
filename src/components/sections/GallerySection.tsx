@@ -1,7 +1,8 @@
-import Image from 'next/image'
 import { galleryItems } from '../../data/landingContent'
 import { SectionWrapper } from '../ui/SectionWrapper'
 import { SectionHead } from '../ui/SectionHead'
+
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
 
 export function GallerySection() {
   return (
@@ -18,7 +19,7 @@ export function GallerySection() {
             key={item.id}
             className={`gallery-item ${item.cls}`}
           >
-            <Image src={item.src} alt={item.label} fill style={{ objectFit: 'cover' }} />
+            <img src={`${BASE}${item.src}`} alt={item.label} loading="lazy" />
           </div>
         ))}
       </div>
