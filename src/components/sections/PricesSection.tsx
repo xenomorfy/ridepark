@@ -5,7 +5,7 @@ import { CheckList } from '../ui/CheckList'
 
 export function PricesSection() {
   return (
-    <SectionWrapper id="prices" className="section-alt has-bg-enduro">
+    <SectionWrapper id="prices" className="section-alt has-bg-enduro" style={{ '--bg-image': `url(${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/images/enduro.png)` }}>
       <SectionHead
         eyebrow="Тарифы"
         title="Прозрачное ценообразование"

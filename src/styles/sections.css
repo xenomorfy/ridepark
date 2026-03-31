@@ -99,13 +99,13 @@
   opacity:        0.18;
 }
 
-.has-bg-bike::before        { background-image: url('/images/bike.png'); }
-.has-bg-rider::before       { background-image: url('/images/rider.png'); }
-.has-bg-rider-2::before     { background-image: url('/images/rider-2.png'); }
-.has-bg-quad-action::before { background-image: url('/images/quad-action.png'); }
-.has-bg-gear::before        { background-image: url('/images/gear.png'); }
-.has-bg-helmet::before      { background-image: url('/images/helmet.png'); }
-.has-bg-enduro::before      { background-image: url('/images/enduro.png'); }
+.has-bg-bike::before,
+.has-bg-rider::before,
+.has-bg-rider-2::before,
+.has-bg-quad-action::before,
+.has-bg-gear::before,
+.has-bg-helmet::before,
+.has-bg-enduro::before      { background-image: var(--bg-image); }
 
 .has-bg-bike .container,
 .has-bg-rider .container,

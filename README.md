@@ -1,16 +1,27 @@
-# React + Vite
+# RIDEPARK
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Лендинг клуба аренды мотоциклов и квадроциклов. Next.js 15 + React 19 + TypeScript, чистый CSS.
 
-Currently, two official plugins are available:
+## Запуск
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm run dev      # localhost:3000
+npm run build    # сборка
+npm run lint     # линтер
+```
 
-## React Compiler
+## Деплой
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Сайт деплоится на GitHub Pages через `.github/workflows/deploy.yml`.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+> **TODO: убрать перед переездом на нормальный хостинг**
+>
+> Текущая конфигурация заточена под GitHub Pages (статический экспорт):
+> - `next.config.ts` — `output: 'export'`, `basePath: '/ridepark'`, `assetPrefix: '/ridepark/'`, `env.NEXT_PUBLIC_BASE_PATH`
+> - Все пути к медиа-файлам (картинки, видео) вручную префиксируются через `process.env.NEXT_PUBLIC_BASE_PATH`
+> - CSS-переменная `--bg-image` на секциях передаётся через `style` prop вместо хардкода в CSS
+>
+> При переезде на хостинг с сервером (Vercel, VPS и т.д.):
+> 1. Удалить `basePath`, `assetPrefix`, `output: 'export'`, `env.NEXT_PUBLIC_BASE_PATH` из `next.config.ts`
+> 2. Вернуть `next/image` вместо `<img>` там где нужна оптимизация
+> 3. Убрать `${BASE}` префиксы из компонентов и `--bg-image` из `style` пропов

@@ -4,7 +4,7 @@ import { SectionHead } from '../ui/SectionHead'
 
 export function TracksSection() {
   return (
-    <SectionWrapper id="tracks" className="has-bg-quad-action">
+    <SectionWrapper id="tracks" className="has-bg-quad-action" style={{ '--bg-image': `url(${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/images/quad-action.png)` }}>
       <SectionHead
         eyebrow="Маршруты"
         title="Три трассы для трёх уровней"

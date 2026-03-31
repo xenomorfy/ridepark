@@ -5,7 +5,7 @@ import { CheckList } from '../ui/CheckList'
 
 export function RentRulesSection() {
   return (
-    <SectionWrapper id="rent-rules" className="has-bg-gear">
+    <SectionWrapper id="rent-rules" className="has-bg-gear" style={{ '--bg-image': `url(${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/images/gear.png)` }}>
       <SectionHead
         eyebrow="Аренда"
         title="Условия проката"

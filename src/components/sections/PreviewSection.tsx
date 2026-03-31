@@ -44,7 +44,7 @@ const SERVICE_ICONS: Record<string, ReactElement> = {
 
 export function PreviewSection() {
   return (
-    <SectionWrapper id="preview" className="has-bg-rider-2">
+    <SectionWrapper id="preview" className="has-bg-rider-2" style={{ '--bg-image': `url(${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/images/rider-2.png)` }}>
       <SectionHead
         eyebrow="Что мы предлагаем"
         title="Всё для идеальной поездки"

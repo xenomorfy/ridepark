@@ -4,7 +4,7 @@ import { SectionHead } from '../ui/SectionHead'
 
 export function EventsSection() {
   return (
-    <SectionWrapper id="events" className="has-bg-helmet">
+    <SectionWrapper id="events" className="has-bg-helmet" style={{ '--bg-image': `url(${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/images/helmet.png)` }}>
       <SectionHead
         eyebrow="Календарь"
         title="События 2026"
